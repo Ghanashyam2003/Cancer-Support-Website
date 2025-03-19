@@ -1,0 +1,59 @@
+/* src/components/FeaturedStories.css */
+
+.featured-stories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .story-container {
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .story-content {
+    flex: 1;
+  }
+  
+  .story-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .story-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .story-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .read-more {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid black;
+    background:gold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .read-more:hover {
+    background: black;
+    color: white;
+  }
+  
+  .story-image img {
+    max-width: 500px;
+    border-radius: 12px;
+  }
+  
