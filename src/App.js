@@ -8,6 +8,9 @@ import FeaturedStories from "./components/FeaturedStories";
 import HeroSection from "./components/HeroSection";
 import PopularCauses from "./components/PopularCauses";
 import VolunteerSection from "./components/VolunteerSection";
+import LatestNews from "./components/LatestNews";
+import Footer from "./components/Footer";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 function App() {
@@ -21,7 +24,9 @@ function App() {
       <PopularCauses />
       <img src="/images/can.png" alt="Innovation" className="Innovation-image" />
       <VolunteerSection />
-      
+      <LatestNews />
+      <img src="/images/footer.png" alt="Innovation" className="Innovation-image" />
+      <Footer />
     </div>
   );
 }
