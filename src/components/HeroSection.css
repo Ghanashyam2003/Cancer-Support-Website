@@ -1,0 +1,68 @@
+/* src/components/HeroSection.css */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap;
+    background: #f9f9f9;
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card h2 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #555;
+    padding: 0 20px;
+  }
+  
+  .card button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    transition: background 0.3s;
+  }
+  
+  .card:nth-child(1) {
+    background: #7ad9e3;
+  }
+  
+  .card:nth-child(2) {
+    background: #c6a2d4;
+  }
+  
+  .card:nth-child(3) {
+    background: #d89ac5;
+  }
+  
+  .card button:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
