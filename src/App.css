@@ -32,7 +32,22 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.mission-image {
+  width: 80vw;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+
+.Innovation-image {
+  width: 80vw;
+  max-height: 60vh;
+  object-fit: contain;
 }
