@@ -1,0 +1,100 @@
+/* src/assets/styles/Navbar.css */
+
+:root {
+    --primary-color: #004d60; /* Soft teal */
+    --text-color: #1a1a1a;    /* Dark gray */
+    --highlight-color: #89e3e0; /* Light blue */
+    --background-color: #f9f9f9; /* Soft white */
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--background-color);
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+}
+
+/* Active Underline Effect */
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--highlight-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Right Section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Search Icon */
+.icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Donate Button */
+.donate-btn {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.donate-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
