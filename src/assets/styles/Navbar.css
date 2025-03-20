@@ -1,10 +1,14 @@
 /* src/assets/styles/Navbar.css */
 
 :root {
-    --primary-color: #004d60; /* Soft teal */
-    --text-color: #1a1a1a;    /* Dark gray */
-    --highlight-color: #89e3e0; /* Light blue */
-    --background-color: #f9f9f9; /* Soft white */
+    --primary-color: #004d60;
+    /* Soft teal */
+    --text-color: #1a1a1a;
+    /* Dark gray */
+    --highlight-color: #89e3e0;
+    /* Light blue */
+    --background-color: #f9f9f9;
+    /* Soft white */
 }
 
 body {
@@ -97,4 +101,75 @@ body {
 .donate-btn:hover {
     background-color: var(--primary-color);
     color: white;
+}
+
+
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: absolute;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    top: 100%;
+    left: -40px;
+    width: 220px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show dropdown on hover */
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li:hover .dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Items */
+.dropdown li {
+    padding: 12px 20px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown li:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.05);
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    display: block;
+    transition: color 0.3s;
+}
+
+/* Hover effect on text */
+.dropdown li a:hover {
+    color: var(--primary-color);
+}
+
+/* Subtle glow effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Apply glow when hovering over dropdown */
+.nav-links li:hover .dropdown {
+    animation: glow 0.3s ease forwards;
 }
