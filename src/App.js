@@ -15,17 +15,30 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Navbar />
       <FeaturedStories />
       <Home />
       <HeroSection />
-      <img src="/images/mission-section.png" alt="Our Mission - Cancer Support" className="mission-image" />
+
+      
+      <div className="image-container">
+        <img src="/images/mission-section.png" alt="Our Mission - Cancer Support" className="mission-image" />
+      </div>
+
       <PopularCauses />
-      <img src="/images/can.png" alt="Innovation" className="Innovation-image" />
+
+      <div className="image-container">
+        <img src="/images/can.png" alt="Innovation" className="Innovation-image" />
+      </div>
+
       <VolunteerSection />
       <LatestNews />
-      <img src="/images/footer.png" alt="Innovation" className="Innovation-image" />
+
+      <div className="image-container">
+        <img src="/images/footer.png" alt="Footer Section" className="footer-image" />
+      </div>
+
       <Footer />
     </div>
   );

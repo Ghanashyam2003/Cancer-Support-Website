@@ -44,10 +44,10 @@ const Footer = () => {
             <p className="footer-contact">+(84) - 1800 - 4635</p>
             <p>shubhambadgujar2003@gmail.com</p>
             <div className="footer-social-icons">
-  <a href="#"><i className="fab fa-facebook-f"></i></a>
-  <a href="#"><i className="fab fa-instagram"></i></a>
-  <a href="#"><i className="fab fa-twitter"></i></a>
-  <a href="#"><i className="fab fa-youtube"></i></a>
+  <a href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
+  <a href="https://www.twitter.com/"><i className="fab fa-twitter"></i></a>
+  <a href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a>
 </div>
           </div>
         </div>
