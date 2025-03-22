@@ -23,21 +23,61 @@ function App() {
 
       
       <div className="image-container">
-        <img src="/images/mission-section.png" alt="Our Mission - Cancer Support" className="mission-image" />
-      </div>
+  <img
+    src="/images/mission-section.png"
+    alt="Our Mission-Cancer Support"
+    className="mission-image"
+    style={{
+      width: "100%",
+      height: "auto",
+      maxHeight: "80vh",
+      objectFit: "cover",
+      padding: "20px",
+      display: "block",
+      margin: "0 auto",
+    }}
+  />
+</div>
 
       <PopularCauses />
 
       <div className="image-container">
-        <img src="/images/can.png" alt="Innovation" className="Innovation-image" />
-      </div>
+  <img
+    src="/images/can.png"
+    alt="Innovation"
+    className="Innovation-image"
+    style={{
+      width: "100%",
+      height: "auto",
+      maxHeight: "90vh",
+      objectFit: "cover",
+      padding: "45px",
+      display: "block",
+      margin: "20 20",
+    }}
+  />
+</div>
 
       <VolunteerSection />
       <LatestNews />
 
       <div className="image-container">
-        <img src="/images/footer.png" alt="Footer Section" className="footer-image" />
-      </div>
+  <img
+    src="/images/footer.png"
+    alt="Footer Section"
+    className="footer-image"
+    style={{
+      width: "100%",
+      height: "auto",
+      maxHeight: "80vh",
+      objectFit: "cover",
+      padding: "35px",
+      display: "block",
+      margin: "20 20",
+    }}
+  />
+</div>
+
 
       <Footer />
     </div>
