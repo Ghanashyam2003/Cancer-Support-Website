@@ -39,9 +39,10 @@ const Navbar = () => {
                         <a href="/causes">Causes </a>
                         {dropdown.causes && (
                             <ul className="dropdown">
-                                <li><a href="/causes-grid1">Causes – Grid Style 1</a></li>
-                                <li><a href="/causes-grid2">Causes – Grid Style 2</a></li>
-                                <li><a href="/causes-detail">Causes – Detail Style</a></li>
+                                <li><a href="https://www.cancercenter.com/stage-one-cancer">Stage 1 Cancer</a></li>
+                                <li><a href="https://www.cancercenter.com/stage-two-cancer">Stage 2 Cancer</a></li>
+                                <li><a href="https://www.cancercenter.com/stage-three-cancer">Stage 3 Cancer</a></li>
+                                <li><a href="https://www.cancercenter.com/stage-four-cancer">Stage 4 Cancer</a></li>
                             </ul>
                         )}
                     </li>
