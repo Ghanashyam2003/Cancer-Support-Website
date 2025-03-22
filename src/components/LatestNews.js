@@ -3,32 +3,39 @@ import "./LatestNews.css";
 
 const newsData = [
   {
-    category: "CHILDREN",
+    category: "CHILDREN & CANCER",
     image: "/images/news1.jpg",
-    title: "Tuesday Tips: Being Realistic With Your Goals",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...",
-    fullDescription: "This article discusses practical strategies for setting realistic goals, staying motivated, and achieving personal success in everyday life.",
+    title: "Tuesday Tips: Supporting Children with Cancer",
+    description:
+      "Caring for a child with cancer is emotionally and physically challenging. Learn how to set realistic goals for treatment, self-care, and emotional resilience...",
+    fullDescription:
+      "This article provides practical strategies for parents and caregivers of children battling cancer. From setting realistic treatment expectations to finding emotional support and maintaining hope, learn how to navigate this difficult journey with strength and positivity. We also explore how to help siblings cope, ways to create a comforting home environment, and resources for financial assistance.",
     date: "May 15, 2021",
     author: "admin",
   },
   {
     category: "FOOD & HEALTH",
     image: "/images/news2.jpg",
-    title: "20th Anniversary of Growing Up Asian in America",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...",
-    fullDescription: "A look back at 20 years of cultural identity, representation, and the challenges faced by Asian Americans in modern society.",
-    date: "May 15, 2021",
+    title: "Nutrition Tips for Cancer Patients: Eating Right During Treatment",
+    description:
+      "A well-balanced diet plays a crucial role in the recovery and well-being of cancer patients. Learn which foods help strengthen the immune system and ease treatment side effects...",
+    fullDescription:
+      "Proper nutrition is essential for cancer patients undergoing treatment. This article covers dietary recommendations, meal plans, and ways to manage side effects like nausea and fatigue through nutrition. Experts share insights on the best foods for boosting energy levels, the importance of hydration, and supplements that may be beneficial during chemotherapy or radiation therapy. Additionally, we discuss common myths surrounding cancer diets and provide scientifically-backed nutritional guidance.",
+    date: "April 05, 2022",
     author: "admin",
   },
   {
-    category: "EDUCATION",
+    category: "HEALTHCARE CHALLENGES",
     image: "/images/news3.jpg",
-    title: "Stroke care gains in Puerto Rico falter after Hurricane Maria",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...",
-    fullDescription: "An investigative report on the impact of Hurricane Maria on healthcare in Puerto Rico, focusing on stroke care and emergency response challenges.",
-    date: "May 15, 2021",
+    title: "Access to Cancer Treatment in Disaster-Affected Areas",
+    description:
+      "Natural disasters can severely impact healthcare infrastructure, leaving cancer patients without access to vital treatments. Learn about the ongoing efforts to provide care in such conditions...",
+    fullDescription:
+      "This investigative report highlights the challenges faced by cancer patients in disaster-hit regions. It explores the disruption of treatment plans, the role of emergency response teams, and how organizations are working to restore healthcare access. Many patients face medication shortages, lack of specialized care, and financial hardship after disasters like hurricanes, earthquakes, and floods. We also share real-life stories of resilience, the importance of mobile clinics, and how global aid organizations are stepping in to help.",
+    date: "June 26, 2025",
     author: "admin",
   },
+  
 ];
 
 const LatestNews = () => {
