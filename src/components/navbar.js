@@ -1,108 +1,131 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "../assets/styles/Navbar.css";
-import Donate from './Donate'; // Import the Donate component
+import Donate from "./Donate";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
-    const [dropdown, setDropdown] = useState({});
-    const [showDonate, setShowDonate] = useState(false); // Controls donate modal
-    const [searchOpen, setSearchOpen] = useState(false); // Controls search box
-    const [searchQuery, setSearchQuery] = useState(""); // Search input
+  const [dropdown, setDropdown] = useState({});
+  const [showDonate, setShowDonate] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [user, setUser] = useState(null);
 
-    const toggleDropdown = (menu) => {
-        setDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
-    };
+  const toggleDropdown = (menu) => {
+    setDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
+  };
 
-    const handleSearch = (e) => {
-        if (e.key === "Enter") {
-            alert(`Searching for: ${searchQuery}`); // Replace with actual search logic
-            setSearchQuery(""); // Clear input after search
-            setSearchOpen(false); // Hide search box
-        }
-    };
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      alert(`Searching for: ${searchQuery}`);
+      setSearchQuery("");
+      setSearchOpen(false);
+    }
+  };
 
-    return (
-        <>
-            <nav className="navbar">
-                <div className="logo">BraveHearts</div>
-                <ul className="nav-links">
-                    <li onMouseEnter={() => toggleDropdown("home")} onMouseLeave={() => toggleDropdown("home")}>
-                        <a href="/Home">Home </a>
-                        {dropdown.home && (
-                            <ul className="dropdown">
-                                <li><a href="/home-option1">Home Style 1</a></li>
-                                <li><a href="/home-option2">Home Style 2</a></li>
-                            </ul>
-                        )}
-                    </li>
+  const handleLogout = () => {
+    setUser(null);
+  };
 
-                    <li onMouseEnter={() => toggleDropdown("causes")} onMouseLeave={() => toggleDropdown("causes")}>
-                        <a href="/causes">Causes </a>
-                        {dropdown.causes && (
-                            <ul className="dropdown">
-                                <li><a href="https://www.cancercenter.com/stage-one-cancer">Stage 1 Cancer</a></li>
-                                <li><a href="https://www.cancercenter.com/stage-two-cancer">Stage 2 Cancer</a></li>
-                                <li><a href="https://www.cancercenter.com/stage-three-cancer">Stage 3 Cancer</a></li>
-                                <li><a href="https://www.cancercenter.com/stage-four-cancer">Stage 4 Cancer</a></li>
-                            </ul>
-                        )}
-                    </li>
-
-                    <li onMouseEnter={() => toggleDropdown("pages")} onMouseLeave={() => toggleDropdown("pages")}>
-                        <a href="/pages">Pages </a>
-                        {dropdown.pages && (
-                            <ul className="dropdown">
-                                <li><a href="/faq">FAQ</a></li>
-                                <li><a href="/events">Events</a></li>
-                            </ul>
-                        )}
-                    </li>
-
-                    <li onMouseEnter={() => toggleDropdown("about")} onMouseLeave={() => toggleDropdown("about")}>
-                        <a href="/about">About </a>
-                        {dropdown.about && (
-                            <ul className="dropdown">
-                                <li><a href="/team">Our Team</a></li>
-                                <li><a href="/mission">Our Mission</a></li>
-                            </ul>
-                        )}
-                    </li>
-
-                    <li onMouseEnter={() => toggleDropdown("contact")} onMouseLeave={() => toggleDropdown("contact")}>
-                        <a href="/contact">Contact </a>
-                        {dropdown.contact && (
-                            <ul className="dropdown">
-                                <li><a href="/support">Support</a></li>
-                                <li><a href="/inquiries">Inquiries</a></li>
-                            </ul>
-                        )}
-                    </li>
+  return (
+    <>
+      <nav className="navbar">
+        <div className="navbar-left">
+          <div className="logo">BraveHearts</div>
+          <ul className="nav-links">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li
+              onMouseEnter={() => toggleDropdown("pages")}
+              onMouseLeave={() => toggleDropdown("pages")}
+            >
+              <a href="#!">Pages ▾</a>
+              {dropdown.pages && (
+                <ul className="dropdown">
+                  <li>
+                    <a href="/about">About Us</a>
+                  </li>
+                  <li>
+                    <a href="/blog">Blog</a>
+                  </li>
+                  <li>
+                    <a href="/contact">Contact</a>
+                  </li>
                 </ul>
+              )}
+            </li>
+          </ul>
+        </div>
 
-                <div className="navbar-right">
-                    <span className="icon" onClick={() => setSearchOpen(true)}>🔍</span>
+        <div className="navbar-right">
+          <div className="search-wrapper">
+            <button
+              className="icon-btn"
+              aria-label="Open search"
+              onClick={() => setSearchOpen(true)}
+            >
+              🔍
+            </button>
+            {searchOpen && (
+              <div className="search-container">
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearch}
+                  autoFocus
+                />
+                <button
+                  className="close-search"
+                  onClick={() => setSearchOpen(false)}
+                  aria-label="Close search"
+                >
+                  ×
+                </button>
+              </div>
+            )}
+          </div>
 
-                    {searchOpen && (
-                        <div className="search-container">
-                            <input
-                                type="text"
-                                className="search-input"
-                                placeholder="Search..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                onKeyDown={handleSearch}
-                                autoFocus
-                            />
-                            <button className="close-search" onClick={() => setSearchOpen(false)}>❌</button>
-                        </div>
-                    )}
+          <button className="donate-btn" onClick={() => setShowDonate(true)}>
+            Donate
+          </button>
 
-                    <button className="donate-btn" onClick={() => setShowDonate(true)}>Donate</button>
-                </div>
-            </nav>
+          {!user ? (
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                const decoded = jwtDecode(credentialResponse.credential);
+                setUser(decoded);
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+              useOneTap
+              width="180"
+            />
+          ) : (
+            <div className="user-info">
+              {user.picture && (
+                <img
+                  src={user.picture}
+                  alt={user.name}
+                  className="user-avatar"
+                  title={user.name}
+                />
+              )}
+              <button className="sign-out-btn" onClick={handleLogout}>
+                Sign Out
+              </button>
+            </div>
+          )}
+        </div>
+      </nav>
 
-            {showDonate && <Donate onClose={() => setShowDonate(false)} />}
-        </>
-    );
+      {showDonate && <Donate onClose={() => setShowDonate(false)} />}
+    </>
+  );
 };
 
 export default Navbar;
