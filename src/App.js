@@ -3,18 +3,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { AuthProvider } from "./components/AuthContext"; // optional context if used
+import { AuthProvider } from "./components/AuthContext"; 
 
 import Home from "./pages/home";
-import Navbar from "./components/Navbar"; // ⬅️ Capital "N"
-import "./assets/styles/Navbar.css";
-import FeaturedStories from "./components/FeaturedStories";
-import HeroSection from "./components/HeroSection";
-import PopularCauses from "./components/PopularCauses";
-import VolunteerSection from "./components/VolunteerSection";
-import LatestNews from "./components/LatestNews";
-import Footer from "./components/Footer";
-import SignIn from "./components/SignIn"; // 🔥 Make sure this file exists and matches exactly
+import Navbar from "./components/Navbar/Navbar"; 
+import "./components/Navbar/Navbar.css";
+import FeaturedStories from "./components/FeaturesStorie/FeaturedStories";
+import HeroSection from "./components/HeroSection/HeroSection";
+import PopularCauses from "./components/PopularCauses/PopularCauses";
+import VolunteerSection from "./components/VolunteerSection/VolunteerSection";
+import LatestNews from "./components/LatestNews/LatestNews";
+import Footer from "./components/Footer/Footer";
+import SignIn from "./components/SignIn"; //
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function MainContent() {
