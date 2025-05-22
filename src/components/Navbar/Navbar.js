@@ -126,7 +126,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* ✅ Use only the correct donation component */}
+      
       {showDonate && <Donate onClose={() => setShowDonate(false)} />}
     </>
   );
