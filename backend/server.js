@@ -1,18 +1,22 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import donationRoutes from "./routes/donationRoutes.js";
 
-dotenv.config();
+dotenv.config(); // ✅ Load environment variables
+
 const app = express();
-connectDB();
 
-// Middlewares
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // ✅ Enable CORS
+app.use(express.json()); // ✅ Parse JSON bodies
+app.use("/donation", donationRoutes); // ✅ Set up routes
 
-// Routes
-app.use("/api/volunteers", require("./routes/volunteerRoutes"));
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+// ✅ Connect to MongoDB and start the server
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(5000, () => console.log("Server running on port 5000"));
+  })
+  .catch((err) => console.error(err));

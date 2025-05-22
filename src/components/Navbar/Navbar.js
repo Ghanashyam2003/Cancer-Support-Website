@@ -89,16 +89,12 @@ const Navbar = () => {
             )}
           </div>
 
-          <a
-  href="https://imjo.in/X2TQpN"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button className="donate-animated-btn">
-    Donate Now ❤️
-  </button>
-</a>
-
+          <button
+            className="donate-animated-btn"
+            onClick={() => setShowDonate(true)}
+          >
+            Donate Now ❤️
+          </button>
 
           {!user ? (
             <GoogleLogin
@@ -130,6 +126,7 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {/* ✅ Use only the correct donation component */}
       {showDonate && <Donate onClose={() => setShowDonate(false)} />}
     </>
   );

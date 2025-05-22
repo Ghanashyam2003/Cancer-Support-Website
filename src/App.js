@@ -17,6 +17,9 @@ import Footer from "./components/Footer/Footer";
 import SignIn from "./components/SignIn"; //
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+
+
+
 function MainContent() {
   return (
     <div className="app-container">
@@ -24,6 +27,7 @@ function MainContent() {
       <FeaturedStories />
       <Home />
       <HeroSection />
+    
 
       <div className="image-container">
         <img
