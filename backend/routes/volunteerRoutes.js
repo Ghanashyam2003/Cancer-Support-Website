@@ -1,11 +1,28 @@
-const express = require('express');
+import express from "express";
+import Volunteer from "../models/Volunteer.js";
+;
+
+
 const router = express.Router();
 
-// Controller (update the path if needed)
-const { registerVolunteer } = require('../controllers/volunteerController');
+router.post("/register", async (req, res) => {
+    console.log("Received volunteer registration:", req.body);
+  try {
+    const { fullName, email, phone, availability, skills } = req.body;
 
-// Define route
-router.post('/register', registerVolunteer);
+    const newVolunteer = new Volunteer({
+      fullName,
+      email,
+      phone,
+      availability,
+      skills,
+    });
 
-// ✅ Export the router
-module.exports = router;
+    await newVolunteer.save();
+    res.status(201).json({ message: "Volunteer registered successfully!" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to register volunteer" });
+  }
+});
+
+export default router;

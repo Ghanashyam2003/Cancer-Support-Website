@@ -19,10 +19,9 @@ function VolunteerSignUp({ onClose }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form fields
     if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill in all required fields.");
       return;
@@ -30,8 +29,25 @@ function VolunteerSignUp({ onClose }) {
 
     setIsSubmitting(true);
 
-    // Simulate API call delay
-    setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:5000/api/volunteer/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          availability: "Weekends", // Customize as needed
+          skills: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to register");
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
 
@@ -39,7 +55,11 @@ function VolunteerSignUp({ onClose }) {
         setIsSubmitted(false);
         onClose(); // Close form after success message
       }, 2000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again later.");
+      setIsSubmitting(false);
+    }
   };
 
   return (

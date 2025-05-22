@@ -3,20 +3,26 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import donationRoutes from "./routes/donationRoutes.js";
+import volunteerRoutes from "./routes/volunteerRoutes.js";
 
-dotenv.config(); // ✅ Load environment variables
+dotenv.config();  // ✅ Load .env variables
 
-const app = express();
+const app = express(); // ✅ Define `app` BEFORE using it
 
-app.use(cors()); // ✅ Enable CORS
-app.use(express.json()); // ✅ Parse JSON bodies
-app.use("/donation", donationRoutes); // ✅ Set up routes
+app.use(cors());
+app.use(express.json());
 
-// ✅ Connect to MongoDB and start the server
+// ✅ Use routes after app is initialized
+app.use("/api/donation", donationRoutes);
+app.use("/api/volunteer", volunteerRoutes);
+
+// MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("MongoDB connected");
-    app.listen(5000, () => console.log("Server running on port 5000"));
+    app.listen(process.env.PORT || 5000, () =>
+      console.log(`Server running on port ${process.env.PORT || 5000}`)
+    );
   })
-  .catch((err) => console.error(err));
+  .catch((err) => console.error("MongoDB connection failed:", err));
