@@ -3,10 +3,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { AuthProvider } from "./components/AuthContext"; 
+import { AuthProvider } from "./components/AuthContext";
 
 import Home from "./pages/home";
-import Navbar from "./components/Navbar/Navbar"; 
+import Navbar from "./components/Navbar/Navbar";
 import "./components/Navbar/Navbar.css";
 import FeaturedStories from "./components/FeaturesStorie/FeaturedStories";
 import HeroSection from "./components/HeroSection/HeroSection";
@@ -16,9 +16,9 @@ import LatestNews from "./components/LatestNews/LatestNews";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./components/SignIn"; //
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-
-
+import ThankYou from "./components/ThankYou/ThankYou";
+import "./components/FeedbackForm/FeedbackForm";
+import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
 
 function MainContent() {
   return (
@@ -27,7 +27,6 @@ function MainContent() {
       <FeaturedStories />
       <Home />
       <HeroSection />
-    
 
       <div className="image-container">
         <img
@@ -67,6 +66,7 @@ function MainContent() {
 
       <VolunteerSection />
       <LatestNews />
+      
 
       <div className="image-container">
         <img
@@ -92,12 +92,17 @@ function MainContent() {
 
 function App() {
   return (
-    
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <AuthProvider>
         <Router>
           <Routes>
+            {/* Home Page */}
             <Route path="/" element={<MainContent />} />
+
+            {/* Feedback Page */}
+            <Route path="/feedback" element={<FeedbackForm />} />
+
+            {/* Sign In Page */}
             <Route path="/sign-in" element={<SignIn />} />
           </Routes>
         </Router>
@@ -105,5 +110,6 @@ function App() {
     </GoogleOAuthProvider>
   );
 }
+
 
 export default App;

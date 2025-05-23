@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import donationRoutes from "./routes/donationRoutes.js";
 import volunteerRoutes from "./routes/volunteerRoutes.js";
+import feedbackRoutes from "./routes/feedbackRoutes.js"; // ✅ Import feedback routes
 
 dotenv.config();  // ✅ Load .env variables
 
@@ -13,8 +14,9 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Use routes after app is initialized
-app.use("/api/donation", donationRoutes);
+app.use("/donation", donationRoutes);
 app.use("/api/volunteer", volunteerRoutes);
+app.use("/api/feedback", feedbackRoutes); // ✅ Use feedback routes
 
 // MongoDB connection
 mongoose

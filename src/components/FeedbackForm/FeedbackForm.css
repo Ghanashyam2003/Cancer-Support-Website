@@ -1,0 +1,97 @@
+.feedback-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(to bottom right, #ffffff, #f9f9f9);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  text-align: center;
+}
+
+.feedback-container h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #333;
+  font-weight: bold;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: scaleIn 0.5s ease-in-out;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.feedback-form button {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 75, 43, 0.4);
+}
+
+.success-message {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    }
+
+    
