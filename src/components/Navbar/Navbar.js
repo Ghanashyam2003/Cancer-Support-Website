@@ -3,6 +3,7 @@ import "./Navbar.css";
 import Donate from "../Donate/Donate";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState({});
@@ -27,15 +28,30 @@ const Navbar = () => {
     setUser(null);
   };
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+      setUser(decoded);
+
+      // 📩 Send welcome email request to backend
+      await axios.post("https://your-backend-url.com/api/send-welcome-email", {
+        name: decoded.name,
+        email: decoded.email,
+      });
+
+      console.log("Welcome email triggered if user is new.");
+    } catch (error) {
+      console.error("Google login or email sending failed:", error);
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
         <div className="navbar-left">
           <div className="logo">BraveHearts</div>
           <ul className="nav-links">
-            <li>
-              <a href="/">Home</a>
-            </li>
+            <li><a href="/">Home</a></li>
             <li
               onMouseEnter={() => toggleDropdown("pages")}
               onMouseLeave={() => toggleDropdown("pages")}
@@ -43,15 +59,9 @@ const Navbar = () => {
               <a href="#!">Pages ▾</a>
               {dropdown.pages && (
                 <ul className="dropdown">
-                  <li>
-                    <a href="/about">About Us</a>
-                  </li>
-                  <li>
-                    <a href="/blog">Blog</a>
-                  </li>
-                  <li>
-                    <a href="/contact">Contact</a>
-                  </li>
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/contact">Contact</a></li>
                   <li><a href="/feedback">Feedback</a></li>
                 </ul>
               )}
@@ -61,13 +71,7 @@ const Navbar = () => {
 
         <div className="navbar-right">
           <div className="search-wrapper">
-            <button
-              className="icon-btn"
-              aria-label="Open search"
-              onClick={() => setSearchOpen(true)}
-            >
-              🔍
-            </button>
+            <button className="icon-btn" onClick={() => setSearchOpen(true)}>🔍</button>
             {searchOpen && (
               <div className="search-container">
                 <input
@@ -79,55 +83,33 @@ const Navbar = () => {
                   onKeyDown={handleSearch}
                   autoFocus
                 />
-                <button
-                  className="close-search"
-                  onClick={() => setSearchOpen(false)}
-                  aria-label="Close search"
-                >
-                  ×
-                </button>
+                <button className="close-search" onClick={() => setSearchOpen(false)}>×</button>
               </div>
             )}
           </div>
 
-          <button
-            className="donate-animated-btn"
-            onClick={() => setShowDonate(true)}
-          >
+          <button className="donate-animated-btn" onClick={() => setShowDonate(true)}>
             Donate Now ❤️
           </button>
 
           {!user ? (
             <GoogleLogin
-              onSuccess={(credentialResponse) => {
-                const decoded = jwtDecode(credentialResponse.credential);
-                setUser(decoded);
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
+              onSuccess={handleGoogleSuccess}
+              onError={() => console.log("Login Failed")}
               useOneTap
               width="180"
             />
           ) : (
             <div className="user-info">
               {user.picture && (
-                <img
-                  src={user.picture}
-                  alt={user.name}
-                  className="user-avatar"
-                  title={user.name}
-                />
+                <img src={user.picture} alt={user.name} className="user-avatar" title={user.name} />
               )}
-              <button className="sign-out-btn" onClick={handleLogout}>
-                Sign Out
-              </button>
+              <button className="sign-out-btn" onClick={handleLogout}>Sign Out</button>
             </div>
           )}
         </div>
       </nav>
 
-      
       {showDonate && <Donate onClose={() => setShowDonate(false)} />}
     </>
   );
