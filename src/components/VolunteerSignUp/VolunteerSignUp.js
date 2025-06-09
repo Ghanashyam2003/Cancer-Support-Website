@@ -30,19 +30,22 @@ function VolunteerSignUp({ onClose }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/volunteer/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          availability: "Weekends", // Customize as needed
-          skills: formData.message,
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/volunteer/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            availability: "Weekends", // Customize as needed
+            skills: formData.message,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to register");
@@ -64,13 +67,13 @@ function VolunteerSignUp({ onClose }) {
 
   return (
     <motion.div
-      className="volunteer-signup"
+      className="volunteer-Hero"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <div className="signup-header">
-        <h2 className="signup-title">Volunteer Sign-Up</h2>
+        <h2 className="signup-title">Volunteer Now, Empower a Future</h2>
         <button className="close-button" onClick={onClose} aria-label="Close">
           <X size={24} />
         </button>
@@ -79,7 +82,8 @@ function VolunteerSignUp({ onClose }) {
       {!isSubmitted ? (
         <>
           <p className="signup-text">
-            Join our mission to support those battling cancer. Sign up today and make a difference!
+            Join our mission to support those battling cancer. Sign up today and
+            make a difference!
           </p>
           <form className="signup-form" onSubmit={handleSubmit}>
             <input
@@ -108,18 +112,18 @@ function VolunteerSignUp({ onClose }) {
             />
             <textarea
               name="message"
-              placeholder="Why do you want to volunteer?"
+              placeholder="Why do you want to volunteer / Your eductaion Details"
               value={formData.message}
               onChange={handleChange}
             ></textarea>
             <motion.button
-              className="signup-button"
+              className="Sumbit"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Submitting..." : "SIGN UP"}
+              {isSubmitting ? "Submitting..." : "Sumbit Your Form"}
             </motion.button>
           </form>
         </>
@@ -131,7 +135,7 @@ function VolunteerSignUp({ onClose }) {
           transition={{ duration: 0.5 }}
         >
           <h3>Form submitted successfully!</h3>
-          <p>Thank you for signing up as a volunteer. We will contact you soon.</p>
+          <p>Thank you for Sumbit as a volunteer. We will contact you soon.</p>
         </motion.div>
       )}
     </motion.div>

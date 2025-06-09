@@ -37,7 +37,7 @@ function VolunteerSection() {
             whileTap={{ scale: 0.9 }}
             onClick={handleOpenSignUp}
           >
-            SIGN UP NOW
+            Take The Initiative
           </motion.button>
         </motion.div>
       )}
