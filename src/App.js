@@ -21,6 +21,8 @@ import "./components/FeedbackForm/FeedbackForm";
 import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
 import About from "./components/AboutUs/About";
 import Blog from "./components/Blog/Blog";
+import Contact from "./components/Contact/Contact";
+import VolunteerSignUp from "./components/VolunteerSignUp/VolunteerSignUp";
 
 
 function MainContent() {
@@ -115,6 +117,12 @@ function App() {
 
             {/* Blog Page */}
             <Route path="/blog" element={<Blog />} />
+            {/* Contact Page */}
+            <Route path="/contact" element={<Contact />} />
+            {/* Volunteer Sign Up Page */}
+            <Route path="/volunteer-signup" element={<VolunteerSignUp />} />
+
+          
           </Routes>
         </Router>
       </AuthProvider>

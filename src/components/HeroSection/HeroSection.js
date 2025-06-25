@@ -1,6 +1,7 @@
 // src/components/HeroSection.js
 import React, { useState } from "react";
 import "./HeroSection.css";
+import ProfileCard from "../../blocks/Components/ProfileCard/ProfileCard.jsx";
 
 const HeroSection = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -47,8 +48,36 @@ const HeroSection = () => {
     },
   ];
 
+  const team = [
+    {
+      name: "Dr. Neha Sharma",
+      title: "Oncologist",
+      handle: "neha.sharma",
+      status: "Available",
+      contactText: "Email Her",
+      avatarUrl: "/images/team/neha.jpg",
+    },
+    {
+      name: "Amit Khanna",
+      title: "Volunteer Lead",
+      handle: "amit.khanna",
+      status: "Online",
+      contactText: "Contact",
+      avatarUrl: "/images/team/amit.jpg",
+    },
+    {
+      name: "Priya Joshi",
+      title: "Founder & Director",
+      handle: "priya.j",
+      status: "Offline",
+      contactText: "Reach Out",
+      avatarUrl: "/images/team/priya.jpg",
+    },
+  ];
+
   return (
     <section className="hero-section">
+      {/* Hero Cards */}
       {cards.map((card) => (
         <div key={card.id} className="card">
           <img src={card.image} alt={card.title} />
@@ -58,7 +87,7 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Modal for full story */}
+      {/* Full Story Modal */}
       {selectedCard && (
         <div className="modal-overlay" onClick={() => setSelectedCard(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -68,6 +97,25 @@ const HeroSection = () => {
           </div>
         </div>
       )}
+
+      {/* Meet the Team */}
+      <h2 className="team-heading">Meet Our Core Team 💙</h2>
+      <div className="profile-grid">
+        {team.map((person, index) => (
+          <ProfileCard
+            key={index}
+            name={person.name}
+            title={person.title}
+            handle={person.handle}
+            status={person.status}
+            contactText={person.contactText}
+            avatarUrl={person.avatarUrl}
+            showUserInfo={true}
+            enableTilt={true}
+            onContactClick={() => alert(`Contacting ${person.name}`)}
+          />
+        ))}
+      </div>
     </section>
   );
 };

@@ -118,3 +118,27 @@
       transform: scale(1);
   }
 }
+
+
+.team-heading {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 28px;
+  color: #0248a0;
+}
+
+.profile-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+}

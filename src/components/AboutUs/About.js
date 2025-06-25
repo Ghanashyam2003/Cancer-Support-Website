@@ -42,7 +42,7 @@ const About = () => {
         <p>
           Whether you’re a survivor, caregiver, volunteer, or supporter—your voice matters.
         </p>
-        <a href="/volunteer" className="about-btn">Become a Volunteer</a>
+        <a href="/contact" className="about-btn">Contact Us</a>
       </section>
     </div>
   );
