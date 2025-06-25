@@ -10,7 +10,14 @@ import welcomeRoutes from "./routes/welcomeRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://cancer-support-website.onrender.com", // or your actual frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use("/api", welcomeRoutes); // Welcome email route
 
