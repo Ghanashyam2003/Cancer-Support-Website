@@ -31,7 +31,7 @@ function VolunteerSignUp({ onClose }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/volunteer/register",
+        "https://cancer-support-website-backend.onrender.com/api/volunteer/register",
         {
           method: "POST",
           headers: {

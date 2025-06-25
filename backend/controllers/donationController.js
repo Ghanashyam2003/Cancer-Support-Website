@@ -68,7 +68,7 @@ export const handleDonation = async (req, res) => {
         amount,
         buyer_name: fullName,
         email,
-        redirect_url: "http://localhost:3000/thankyou",
+        redirect_url: "https://cancer-support-website-backend.onrender.com/thankyou",
       },
       {
         headers: {

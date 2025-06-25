@@ -27,7 +27,7 @@ const Donate = ({ onClose }) => {
       setLoading(true);
       setMessage(null);
 
-      const res = await fetch("http://localhost:5000/donation", {
+      const res = await fetch("https://cancer-support-website-backend.onrender.com/donation", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(formData),
