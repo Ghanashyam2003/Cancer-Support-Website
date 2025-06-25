@@ -19,6 +19,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import ThankYou from "./components/ThankYou/ThankYou";
 import "./components/FeedbackForm/FeedbackForm";
 import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
+import About from "./components/AboutUs/About";
+import Blog from "./components/Blog/Blog";
+
 
 function MainContent() {
   return (
@@ -104,6 +107,14 @@ function App() {
 
             {/* Sign In Page */}
             <Route path="/sign-in" element={<SignIn />} />
+
+            {/* Thank You Page */}
+            <Route path="/thank-you" element={<ThankYou />} />
+            {/* About Us Page */}
+            <Route path="/about" element={<About />} />
+
+            {/* Blog Page */}
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </Router>
       </AuthProvider>
