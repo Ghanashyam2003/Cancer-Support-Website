@@ -9,7 +9,7 @@ exports.createVolunteer = async (req, res) => {
     // Send confirmation email
     await sendConfirmationEmail(newVolunteer.email, newVolunteer.name);
 
-    res.status(201).json({ message: "Volunteer registered successfully" });
+    res.status(201).json({ message: "Volunteer registered successfully !" });
   } catch (error) {
     console.error("Error saving volunteer:", error);
     res.status(500).json({ error: "Server error" });
