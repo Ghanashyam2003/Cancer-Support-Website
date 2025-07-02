@@ -43,7 +43,7 @@ function MainContent() {
             height: "auto",
             maxHeight: "80vh",
             objectFit: "cover",
-            padding: "20px",
+            padding: "21px",
             display: "block",
             margin: "0 auto",
           }}
